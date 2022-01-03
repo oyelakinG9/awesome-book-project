@@ -6,7 +6,6 @@ const bookList = [
   {
     title: 'book2',
     author: 'writer2',
-    confirm: 'writer3'
   }
 ]
 

@@ -14,10 +14,11 @@
     "no-shadow": "off",
     "no-param-reassign": "off",
     "eol-last": "off",
+    "avoidEscape": true,
+    "allowTemplateLiterals": true,
     "import/extensions": [ 1, {
       "js": "always", "json": "always"
-    }],
-      "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
+    }]
   },
   "ignorePatterns": [
     "dist/",

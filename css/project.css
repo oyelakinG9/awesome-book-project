@@ -1,24 +1,29 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-form {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+body {
+  background: darkseagreen;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-form input {
-    padding: 5px;
-    margin: 5%;
-    width: 90%;
+.d-block {
+  display: block;
 }
 
-.btn-add {
-    float: left;
-    width: 28%;
-    padding: 3%;
-    margin-left: 5%;
+tbody tr {
+  display: grid;
+  margin: 10px;
+}
+
+td {
+  margin-top: 20px;
+}
+
+a.btn-remove.deleteRow {
+  box-sizing: border-box;
+  padding: 2px;
+  background: gray;
 }

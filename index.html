@@ -10,16 +10,26 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Awesome Books</h1>
-    <div class="book-list"></div>
-    <form>
-      <input type="text" placeholder="title" id="title" class="title">
-      <input type="text" placeholder="author" id="author" class="author">
-      <a class="btn-add">Add book</a>
-    </form>
-  </div>
-  <script src="js/main.js"></script>
+  <h1>Awesome Book List</h1>
+  <table class="table">
+      <thead>
+        <tr class="table-row">
+          <th class="table-head"></th>
+          <th class="table-head"></th>
+          <th class="table-head"></th>
+        </tr>
+      <thead>
+      <tbody id="bookList">
+
+      </tbody>
+  </table>
+  <div id="enter">
+      <input type="text" id="inputTitle" placeholder="Title"></br>
+      <input type="text" id="inputAuthor" placeholder="Author"></br>
+      <div id=submit>
+        <button id="submit">Submit</button>
+      </div>
+      <script src="./js/main.js"></script>
 </body>
 
 </html>

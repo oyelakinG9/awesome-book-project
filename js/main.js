@@ -6,10 +6,10 @@ const bookAuthor = document.querySelector('#inputAuthor');
 
 class Book {
   constructor(title, author) {
-    this.title = title
-    this.author = author
+    this.title = title;
+    this.author = author;
   }
-};
+}
 
 function addBookToLibrary() {
   if (bookTitle.value && bookAuthor.value) {
@@ -18,7 +18,7 @@ function addBookToLibrary() {
     alert('Please enter all information');
   }
   return myBookList;
-};
+}
 
 function displayBooks(book) {
   const row = document.createElement('tr');
@@ -28,7 +28,7 @@ function displayBooks(book) {
 
   createTitle.innerHTML = book.title;
   createAuthor.innerHTML = book.author;
-  createRemoveBtn.innerHTML = `<a class="btn-remove deleteRow">remove</a>`;
+  createRemoveBtn.innerHTML = `<a class='btn-remove deleteRow'>remove</a>`;
 
   row.appendChild(createTitle);
   row.appendChild(createAuthor);
@@ -36,11 +36,11 @@ function displayBooks(book) {
   list.appendChild(row);
 
   createRemoveBtn.classList.add('deleteRow');
-};
+}
 
 list.addEventListener('click', function removeBook(e) {
   if (e.target.classList.contains('deleteRow')) {
-    let eachIndex = e.target.parentElement.rowIndex - 1;
+    const eachIndex = e.target.parentElement.rowIndex - 1;
     console.log(eachIndex);
     e.target.parentElement.parentElement.remove();
 
@@ -53,7 +53,7 @@ list.addEventListener('click', function removeBook(e) {
   return myBookList;
 });
 
-submit.addEventListener('click', (e) => {
+submit.addEventListener('click', () => {
   addBookToLibrary();
   displayBooks(myBookList[myBookList.length - 1]);
 });

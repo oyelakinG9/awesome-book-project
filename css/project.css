@@ -27,3 +27,7 @@ a.btn-remove.deleteRow {
   padding: 2px;
   background: gray;
 }
+
+a.btn-remove.deleteRow:hover {
+  cursor: pointer;
+}

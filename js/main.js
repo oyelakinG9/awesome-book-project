@@ -1,12 +1,13 @@
 const myBookList = [];
-const submit = document.querySelector("#submit");
-const list = document.querySelector("#bookList");
-const bookTitle = document.querySelector("#inputTitle");
-const bookAuthor = document.querySelector("#inputAuthor");
+const submit = document.querySelector('#submit');
+const list = document.querySelector('#bookList');
+const bookTitle = document.querySelector('#inputTitle');
+const bookAuthor = document.querySelector('#inputAuthor');
 
 class Book {
   constructor(title, author) {
-    (this.title = title), (this.author = author);
+    this.title = title
+    this.author = author
   }
 };
 
@@ -14,16 +15,16 @@ function addBookToLibrary() {
   if (bookTitle.value && bookAuthor.value) {
     myBookList.push(new Book(bookTitle.value, bookAuthor.value));
   } else {
-    alert("Please enter all information");
+    alert('Please enter all information');
   }
   return myBookList;
 };
 
 function displayBooks(book) {
-  const row = document.createElement("tr");
-  const createTitle = document.createElement("td");
-  const createAuthor = document.createElement("td");
-  const createRemoveBtn = document.createElement("td");
+  const row = document.createElement('tr');
+  const createTitle = document.createElement('td');
+  const createAuthor = document.createElement('td');
+  const createRemoveBtn = document.createElement('td');
 
   createTitle.innerHTML = book.title;
   createAuthor.innerHTML = book.author;
@@ -34,11 +35,11 @@ function displayBooks(book) {
   row.appendChild(createRemoveBtn);
   list.appendChild(row);
 
-  createRemoveBtn.classList.add("deleteRow");
+  createRemoveBtn.classList.add('deleteRow');
 };
 
-list.addEventListener("click", function removeBook(e) {
-  if (e.target.classList.contains("deleteRow")) {
+list.addEventListener('click', function removeBook(e) {
+  if (e.target.classList.contains('deleteRow')) {
     let eachIndex = e.target.parentElement.rowIndex - 1;
     console.log(eachIndex);
     e.target.parentElement.parentElement.remove();
@@ -52,7 +53,7 @@ list.addEventListener("click", function removeBook(e) {
   return myBookList;
 });
 
-submit.addEventListener("click", (e) => {
+submit.addEventListener('click', (e) => {
   addBookToLibrary();
   displayBooks(myBookList[myBookList.length - 1]);
 });

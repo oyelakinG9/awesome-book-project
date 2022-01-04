@@ -38,7 +38,7 @@ function displayBooks(book) {
   createRemoveBtn.classList.add('deleteRow');
 }
 
-list.addEventListener('click', function removeBook(e) {
+list.addEventListener('click', (e) => {
   if (e.target.classList.contains('deleteRow')) {
     const eachIndex = e.target.parentElement.rowIndex - 1;
     console.log(eachIndex);

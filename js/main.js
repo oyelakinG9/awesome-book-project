@@ -46,7 +46,7 @@ list.addEventListener('click', (e) => {
 
     myBookList.forEach((book, index) => {
       if (index === eachIndex) {
-        myBookList.splice[(eachIndex, 1)];
+        myBookList.splice(eachIndex, 1);
       }
     });
   }

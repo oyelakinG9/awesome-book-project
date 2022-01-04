@@ -1,41 +1,68 @@
-const bookList = [
-  {
-    title: 'book1',
-    author: 'writer1',
-  },
-  {
-    title: 'book2',
-    author: 'writer2',
+let myBookList = [];
+const submit = document.querySelector('#submit')
+//const tableHeading = document.querySelector('th')
+//const table = document.querySelector('table')
+const list = document.querySelector("#bookList")
+const bookTitle = document.querySelector('#inputTitle')
+const bookAuthor = document.querySelector('#inputAuthor')
+const btnRemove   = document.querySelector('btn-remove');
+
+//Constructor to create book objects:
+class Book {
+  constructor(title, author) {
+    this.title = title,
+    this.author = author;
   }
-]
-
-const title = document.querySelector('.title');
-const author = document.querySelector('.author');
-const addButton = document.querySelector('.btn-add');
-const bookContainer = document.querySelector('.book-list')
-
-function updateList() {
-  let booklistHTML = '';
-  bookList.forEach((book) => {
-    booklistHTML += `<div><p>${book.title}</p><p>${book.author}</p><a>Remove</a></div>`
-  });
-  bookContainer.appendChild(booklistHTML);
+}
+//New book objects are stored in an array:
+function addBookToLibrary() {
+  if (bookTitle.value && bookAuthor.value) {
+    myBookList.push(new Book(bookTitle.value, bookAuthor.value))
+  } else {
+    alert("Please enter all information")
+  }
+    return myBookList;
 }
 
-function addBook() {
-  console.log('add is calling');
-  const titleV = title.value;
-  const authorV = author.value;
-  if (titleV === '' && authorV === '') {
-    alert("please add title and author");
-  } else {
-    const newBook = {};
-    newBook.title = titleV;
-    newBook.author = authorV;
-    bookList.push(newBook);
-    updateList();
+//Display book:
+function displayBooks(book) {
+  const row = document.createElement('tr')
+  const createTitle = document.createElement('td');
+  const createAuthor = document.createElement('td');
+  const createRemoveBtn = document.createElement('td');
+
+  createTitle.innerHTML = book.title;
+  createAuthor.innerHTML = book.author;
+  createRemoveBtn.innerHTML = ` <a class="btn-remove deleteRow">remove</a>`;
+  //row.innerHTML = `<td>${book.author}<td><td>${book.pages}<td><td>${book.read}<td>`
+  //above code I formatting was weird, will try back using this code
+  row.appendChild(createTitle);
+  row.appendChild(createAuthor);
+  row.appendChild(createRemoveBtn);
+  list.appendChild(row);
+
+  createRemoveBtn.classList.add('deleteRow')
+}
+
+//Remove books:
+list.addEventListener('click', function removeBook(e) {
+  if (e.target.classList.contains('deleteRow')) {
+    let eachIndex = e.target.parentElement.rowIndex - 1
+    console.log(eachIndex)
+    e.target.parentElement.parentElement.remove()
+    //displayBooks(myLibrary[myLibrary.length-1])
+
+    myBookList.forEach((book, index) => {
+      if (index === eachIndex) {
+        myBookList.splice[eachIndex, 1]
+      }
+    })
   }
-};
+  return myBookList;
+})
 
-
-addButton.addEventListener('click', addBook);
+//Event Listeners:
+submit.addEventListener('click', (e) => {
+  addBookToLibrary()
+  displayBooks(myBookList[myBookList.length - 1])
+});

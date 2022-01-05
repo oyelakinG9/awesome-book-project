@@ -1,18 +1,19 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books Project 
 
-> One paragraph statement about the project.
 
-![screenshot](./app_screenshot.png)
+> This project builds on a basic website that allows users to add/remove books from a list. It is achieved by using JavaScript objects and arrays with the help of dynamically modifying the DOM and adding basic events.
+
+![Screenshot (66)](https://user-images.githubusercontent.com/61976324/148091876-cd101f8e-428f-4a04-95f2-6667a0aefeac.png)
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Major languages: HTML, CSS and Javascript.
+- Frameworks: No
+- Technologies used: VScode, chrome, and github
 
 ## Live Demo
 
@@ -45,15 +46,9 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/oyelakinG9/setup_project.git)
+- Twitter: [@twitterhandle](https://github.com/oyelakinG9/setup_project.git)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/oyelakin-ridwan-4b4a02b6)
 
 ## 🤝 Contributing
 

@@ -1,59 +1,116 @@
-const myBookList = [];
-const submit = document.querySelector('#submit');
-const list = document.querySelector('#bookList');
-const bookTitle = document.querySelector('#inputTitle');
-const bookAuthor = document.querySelector('#inputAuthor');
-
-class Book {
+class Collection {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 }
 
-function addBookToLibrary() {
-  if (bookTitle.value && bookAuthor.value) {
-    myBookList.push(new Book(bookTitle.value, bookAuthor.value));
-  } else {
-    alert('Please enter all information');
-  }
-  return myBookList;
-}
+let myBookList = [];
 
-function displayBooks(book) {
-  const row = document.createElement('tr');
-  const createTitle = document.createElement('td');
-  const createAuthor = document.createElement('td');
-  const createRemoveBtn = document.createElement('td');
+// Book displayed on the page
 
-  createTitle.innerHTML = book.title;
-  createAuthor.innerHTML = book.author;
-  createRemoveBtn.innerHTML = `<a class='btn-remove deleteRow'>remove</a>`;
+function init() {
+  for (let i = 0; i < myBookList.length; i += 1) {
+    const section = document.querySelector('.bookSection');
+    const div = document.createElement('div');
+    div.className = ('bookList');
+    const title = document.createElement('p');
+    title.textContent = (myBookList[i].title);
+    title.className = ('classTitle');
+    div.appendChild(title);
+    const author = document.createElement('p');
+    author.textContent = (myBookList[i].author);
+    author.className = ('classAuthor');
+    div.appendChild(author);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = ('Remove');
+    removeBtn.className = ('remove');
 
-  row.appendChild(createTitle);
-  row.appendChild(createAuthor);
-  row.appendChild(createRemoveBtn);
-  list.appendChild(row);
-
-  createRemoveBtn.classList.add('deleteRow');
-}
-
-list.addEventListener('click', (e) => {
-  if (e.target.classList.contains('deleteRow')) {
-    const eachIndex = e.target.parentElement.rowIndex - 1;
-    console.log(eachIndex);
-    e.target.parentElement.parentElement.remove();
-
-    myBookList.forEach((book, index) => {
-      if (index === eachIndex) {
-        myBookList.splice(eachIndex, 1);
+    /* eslint-disable no-loop-func */
+    removeBtn.addEventListener('click', () => {
+      div.style.display = ('none');
+      for (let i = 0; i < myBookList.length; i += 1) {
+        if (myBookList[i].title === title.textContent) {
+          myBookList.splice(i, 1);
+          localStorage.setItem('list', JSON.stringify(myBookList));
+        }
       }
     });
+    div.appendChild(removeBtn);
+    const hr = document.createElement('hr');
+    div.appendChild(hr);
+    section.appendChild(div);
   }
-  return myBookList;
-});
+}
 
-submit.addEventListener('click', () => {
-  addBookToLibrary();
-  displayBooks(myBookList[myBookList.length - 1]);
-});
+// Add button
+function addNewBook() {
+  const bookTitle = document.querySelector('.title');
+  const bookAuthor = document.querySelector('.author');
+  const newBook = new Collection(bookTitle.value, bookAuthor.value);
+  myBookList.push(newBook);
+
+  localStorage.setItem('list', JSON.stringify(myBookList));
+
+  // New book displayed in the page
+  if (bookTitle.value && bookAuthor.value) {
+    const section = document.querySelector('.bookSection');
+    const div = document.createElement('div');
+    div.className = ('bookList');
+    section.appendChild(div);
+    const title = document.createElement('p');
+    title.textContent = (newBook.title);
+    title.className = ('classTitle');
+    div.appendChild(title);
+    const author = document.createElement('p');
+    author.textContent = (newBook.author);
+    title.className = ('classAuthor');
+    div.appendChild(author);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = ('Remove');
+    removeBtn.className = ('remove');
+    removeBtn.addEventListener('click', () => {
+      div.style.display = ('none');
+      // Remove the book from the collection
+      for (let i = 0; i < myBookList.length; i += 1) {
+        if (myBookList[i].title === newBook.title) {
+          myBookList.splice(i, 1);
+        }
+      }
+    });
+    div.appendChild(removeBtn);
+    const hr = document.createElement('hr');
+    div.appendChild(hr);
+    // Empty input values
+    bookTitle.value = ('');
+    bookAuthor.value = ('');
+  }
+}
+
+const addBtn = document.querySelector('.btn');
+addBtn.addEventListener('click', addNewBook);
+
+const data = JSON.parse(localStorage.getItem('list'));
+window.onload = () => {
+  if (data) {
+    myBookList = data;
+    init();
+  } else {
+    myBookList = [
+      {
+        title: 'Book1',
+        author: 'Author1',
+      },
+      {
+        title: 'Book2',
+        author: 'Author2',
+      },
+      {
+        title: 'Book3',
+        author: 'Author3',
+      },
+    ];
+    init();
+    localStorage.setItem('list', JSON.stringify(myBookList));
+  }
+};

@@ -1,4 +1,6 @@
-/* eslint-disable max-classes-per-file */
+const bookTitle = document.querySelector('.title');
+const bookAuthor = document.querySelector('.author');
+const addBtn = document.querySelector('.btn');
 
 class Collection {
   constructor(title, author) {
@@ -6,10 +8,6 @@ class Collection {
     this.author = author;
   }
 }
-
-const bookTitle = document.querySelector('.title');
-const bookAuthor = document.querySelector('.author');
-const addBtn = document.querySelector('.btn');
 
 const data = JSON.parse(localStorage.getItem('list'));
 

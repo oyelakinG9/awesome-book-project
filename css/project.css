@@ -2,7 +2,7 @@
 .pageTitle {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #cc9543;
+  color: black;
 }
 
 .bookSection,
@@ -20,7 +20,7 @@
 }
 
 .bookSection {
-  border: 1px solid black;
+  border: 1px solid gray;
   margin-bottom: 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -43,11 +43,11 @@
   margin-right: 20px;
   align-self: center;
   padding: 8px 12px;
-  background-color: #cc9543;
+  background-color: gray;
   border: none;
   box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5);
   border-radius: 5%;
-  color: white;
+  color: black;
 }
 
 .classAuthor {

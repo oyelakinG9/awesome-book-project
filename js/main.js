@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 class Collection {
   constructor(title, author) {
     this.title = title;
